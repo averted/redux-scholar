@@ -1,7 +1,7 @@
 import {List, Map} from 'immutable';
 import {expect} from 'chai';
 
-import {setEntries, next} from '../src/core';
+import {setEntries, next, vote} from '../src/core';
 
 describe('application logic', () => {
   describe('setEntries', () => {
@@ -86,7 +86,6 @@ describe('application logic', () => {
       }));
     });
   });
-
 
   describe('vote', () => {
     it('creates a tally for the voted entry', () => {
