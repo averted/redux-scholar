@@ -1,4 +1,5 @@
 import { expect, should } from 'chai';
+import { List, Map } from 'immutable';
 
 describe('immutability', () => {
   describe('a number', () => {
@@ -17,17 +18,16 @@ describe('immutability', () => {
 
   describe('an object', () => {
     function addField(state, field, value) {
-      state[field] = value;
-      return state;
+      return state.set(field, value);
     }
 
     it('is not immutable', () => {
-      let state = { id: 42, name: 'Immutable' };
+      let state = Map({ id: 42, name: 'Immutable' });
       let nextState = addField(state, 'field', 'value');
 
-      expect(nextState.id).to.equal(42);
-      expect(nextState['field']).to.be.a('string');
-      expect(state['field']).to.be.a('string');
+      expect(nextState.get('id')).to.equal(42);
+      expect(nextState.get('field')).to.be.a('string');
+      expect(state.get('field')).to.be.undefined;
     });
   });
 });
