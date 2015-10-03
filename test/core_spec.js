@@ -1,4 +1,3 @@
-import {List, Map} from 'immutable';
 import {expect} from 'chai';
 
 import {setEntries, next, vote} from '../src/seed';
@@ -93,47 +92,49 @@ describe('application logic', () => {
   });
 
   describe('vote', () => {
-    it('creates a tally for the voted entry', () => {
-      const state = Map({
-        vote: Map({
-          pair: List.of('Trainspotting', '28 Days Later')
-        }),
-        entries: List()
-      });
+    it('creates a score for the voted entry', () => {
+      const state = {
+        vote: {
+          pair: ['Trainspotting', '28 Days Later'],
+        },
+        entries: [],
+      };
       const nextState = vote(state, 'Trainspotting');
-      expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: Map({
+
+      expect(nextState).to.deep.equal({
+        vote: {
+          pair: ['Trainspotting', '28 Days Later'],
+          score: {
             'Trainspotting': 1
-          })
-        }),
-        entries: List()
-      }));
+          },
+        },
+        entries: []
+      });
     });
 
-    it('adds to existing tally for the voted entry', () => {
-      const state = Map({
-        vote: Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: Map({
+    it('adds to existing score for the voted entry', () => {
+      const state = {
+        vote: {
+          pair: ['Trainspotting', '28 Days Later'],
+          score: {
             'Trainspotting': 3,
             '28 Days Later': 2
-          })
-        }),
-        entries: List()
-      });
+          }
+        },
+        entries: [],
+      };
       const nextState = vote(state, 'Trainspotting');
-      expect(nextState).to.equal(Map({
-        vote: Map({
-          pair: List.of('Trainspotting', '28 Days Later'),
-          tally: Map({
+
+      expect(nextState).to.deep.equal({
+        vote: {
+          pair: ['Trainspotting', '28 Days Later'],
+          score: {
             'Trainspotting': 4,
             '28 Days Later': 2
-          })
-        }),
-        entries: List()
-      }));
+          }
+        },
+        entries: []
+      });
     });
   });
 });
