@@ -94,46 +94,34 @@ describe('application logic', () => {
   describe('vote', () => {
     it('creates a score for the voted entry', () => {
       const state = {
-        vote: {
-          pair: ['Trainspotting', '28 Days Later'],
-        },
-        entries: [],
+        pair: ['Trainspotting', '28 Days Later'],
       };
       const nextState = vote(state, 'Trainspotting');
 
       expect(nextState).to.deep.equal({
-        vote: {
-          pair: ['Trainspotting', '28 Days Later'],
-          score: {
-            'Trainspotting': 1
-          },
+        pair: ['Trainspotting', '28 Days Later'],
+        score: {
+          'Trainspotting': 1
         },
-        entries: []
       });
     });
 
     it('adds to existing score for the voted entry', () => {
       const state = {
-        vote: {
-          pair: ['Trainspotting', '28 Days Later'],
-          score: {
-            'Trainspotting': 3,
-            '28 Days Later': 2
-          }
-        },
-        entries: [],
+        pair: ['Trainspotting', '28 Days Later'],
+        score: {
+          'Trainspotting': 3,
+          '28 Days Later': 2
+        }
       };
       const nextState = vote(state, 'Trainspotting');
 
       expect(nextState).to.deep.equal({
-        vote: {
-          pair: ['Trainspotting', '28 Days Later'],
-          score: {
-            'Trainspotting': 4,
-            '28 Days Later': 2
-          }
-        },
-        entries: []
+        pair: ['Trainspotting', '28 Days Later'],
+        score: {
+          'Trainspotting': 4,
+          '28 Days Later': 2
+        }
       });
     });
   });

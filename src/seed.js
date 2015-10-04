@@ -43,8 +43,8 @@ export function next(state) {
   };
 }
 
-export function vote(state, entry) {
-  state.vote.score = {...state.vote.score};
-  state.vote.score[entry] = (state.vote.score[entry] || 0) + 1
-  return state;
+export function vote(voteState, entry) {
+  voteState.score = {...voteState.score};
+  voteState.score[entry] = (voteState.score[entry] || 0) + 1
+  return voteState;
 }
