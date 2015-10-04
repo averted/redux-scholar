@@ -16,6 +16,8 @@ function getWinner(vote) {
   }
 }
 
+export const INITIAL_STATE = {};
+
 export function setEntries(state, entries) {
   state.entries = entries;
   return state;
