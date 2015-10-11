@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Winner from './winner';
+import * as actionCreators from '../action_creators';
 
 export class Results extends React.Component {
   getPair() {
@@ -35,11 +36,13 @@ export class Results extends React.Component {
   }
 }
 
-@connect((state) => ({
-  pair: state.vote.pair,
-  score: state.vote.score,
-  winner: state.winner,
-}))
+@connect((state) => {
+  return {
+    pair: state.vote ? state.vote.pair : null,
+    score: state.vote ? state.vote.score : null,
+    winner: state.winner,
+  }
+}, actionCreators)
 export class ResultsContainer extends Results { }
 
 // WITHOUT DECORATORS:

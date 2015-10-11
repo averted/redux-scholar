@@ -20,7 +20,7 @@ export class Voting extends React.Component {
     hasVoted: state.hasVoted,
     winner: state.winner,
   }
-})
+}, actionCreators)
 export class VotingContainer extends Voting { }
 
 
@@ -39,10 +39,12 @@ export class VotingContainer extends Voting { }
 // function mapStateToProps(state) {
 //   return {
 //     pair: state.vote ? state.vote.pair : [],
+//     hasVoted: state.hasVoted,
 //     winner: state.winner,
 //   };
 // }
 //
-// connect(mapStateToProps)(Voting);
-//
-// export const VotingContainer = connect(mapStateToProps)(Voting);
+// export const VotingContainer = connect(
+//   mapStateToProps,
+//   actionCreators
+// )(Voting);
