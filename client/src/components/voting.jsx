@@ -1,22 +1,24 @@
 import React from 'react';
-import Winner from './winner';
 import {connect} from 'react-redux';
+import Winner from './winner';
 import Vote from './vote';
 
-export const Voting = React.createClass({
-  render: function() {
+export class Voting extends React.Component {
+  render() {
     return <div>
       {this.props.winner ?
         <Winner ref="winner" winner={this.props.winner} /> :
         <Vote {...this.props} />}
     </div>;
   }
-});
+}
 
-@connect((state) => ({
-  pair: state.vote.pair,
-  winner: state.winner,
-}))
+@connect((state) => {
+  return {
+    pair: state.vote ? state.vote.pair : [],
+    winner: state.winner,
+  }
+})
 export class VotingContainer extends Voting { }
 
 
@@ -34,7 +36,7 @@ export class VotingContainer extends Voting { }
 //
 // function mapStateToProps(state) {
 //   return {
-//     pair: state.vote.pair,
+//     pair: state.vote ? state.vote.pair : [],
 //     winner: state.winner,
 //   };
 // }
