@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Winner from './winner';
 import Vote from './vote';
+import * as actionCreators from '../action_creators';
 
 export class Voting extends React.Component {
   render() {
@@ -16,6 +17,7 @@ export class Voting extends React.Component {
 @connect((state) => {
   return {
     pair: state.vote ? state.vote.pair : [],
+    hasVoted: state.hasVoted,
     winner: state.winner,
   }
 })
