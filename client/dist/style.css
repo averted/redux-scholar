@@ -67,23 +67,23 @@ body {
   display: flex;
   flex-direction: column;
 }
-.results .tally {
+.results .score {
   flex: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.results .tally .entry {
+.results .score .entry {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.results .tally h1 {
+.results .score h1 {
   width: 25%;
 }
-.results .tally .voteVisualization {
+.results .score .voteVisualization {
   height: 50px;
   width: 50%;
   display: flex;
@@ -91,11 +91,11 @@ body {
 
   background-color: #7E57C2;
 }
-.results .tally .votesBlock {
+.results .score .votesBlock {
   background-color: white;
   transition: width 0.5s;
 }
-.results .tally .voteCount {
+.results .score .voteCount {
   font-size: 2rem;
 }
 
