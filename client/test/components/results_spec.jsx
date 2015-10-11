@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import ReactDOM from 'react-dom';
-import Results from '../../src/components/results';
+import {Results} from '../../src/components/results';
 import {expect} from 'chai';
 
 const {
