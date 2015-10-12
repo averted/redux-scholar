@@ -8,8 +8,10 @@ export default function reducer(state = cloneDeep(INITIAL_STATE), action) {
     case 'NEXT':
       return next(state);
     case 'VOTE':
-      state.vote = vote(state.vote, action.entry);
-      return state;
+      return {
+        ...state,
+        vote: vote(state.vote, action.entry)
+      }
   }
 
   return state;
